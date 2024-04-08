@@ -85,7 +85,7 @@ class MoveGame extends FlameGame {
 
     SharedPreferencesUtil shared = SharedPreferencesUtil();
     await shared.init();
-    shared.saveObjectList("score", score);
+    shared.saveNewScore(score);
   }
 
   ParamsAthlete createParamsByModality(Modality? modality) {

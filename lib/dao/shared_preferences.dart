@@ -1,5 +1,4 @@
-import 'dart:convert';
-
+import 'package:letsgo/dto/score_exercise.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesUtil {
@@ -17,18 +16,18 @@ class SharedPreferencesUtil {
     _preferences = await SharedPreferences.getInstance();
   }
 
-  Future<void> saveObjectList<T>(String key, T value) async {
-    List<String> jsonList = _preferences.getStringList(key) ?? [];
+  Future<void> saveNewScore<T>(ScoreExercise value) async {
+    List<String> jsonList = _preferences.getStringList("score") ?? [];
 
-    String jsonValue = jsonEncode(value);
+    String jsonValue = value.toJson();
 
     jsonList.add(jsonValue);
 
-    await _preferences.setStringList(key, jsonList);
+    await _preferences.setStringList("score", jsonList);
   }
 
-  List<T> getObjectList<T>(String key) {
-    List<String> jsonList = _preferences.getStringList(key) ?? [];
-    return jsonList.map((json) => jsonDecode(json) as T).toList();
+  List<ScoreExercise> getScoreList() {
+    List<String> jsonList = _preferences.getStringList("score") ?? [];
+    return jsonList.map((json) => ScoreExercise.fromJson(json)).toList();
   }
 }

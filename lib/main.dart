@@ -1,38 +1,40 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:letsgo/components/card_menu.dart';
+import 'package:letsgo/components/ranking.dart';
 import 'package:letsgo/enumerations/modality.dart';
 import 'package:letsgo/game/move_game.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const LetsGoApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class LetsGoApp extends StatelessWidget {
+  const LetsGoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       initialRoute: "/menu",
       routes: {
-        "/menu": (context) => const MyHomePage(title: 'Olá, jovem padawan!'),
+        "/menu": (context) => const MenuPage(title: 'Olá, jovem padawan!'),
         "/game": (context) => GameWidget(game: MoveGame(context: context)),
+        "/ranking": (context) => const Ranking(),
       },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class MenuPage extends StatefulWidget {
+  const MenuPage({super.key, required this.title});
 
   final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<MenuPage> createState() => _MenuPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -53,13 +55,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 fontFamily: "Vinque",
               ),
             ),
-            actions: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(Icons.emoji_events),
-                tooltip: "Ranking",
-              )
-            ],
           ),
           body: const Center(
             child: Column(
@@ -84,6 +79,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   modality: Modality.jump,
                 ),
               ],
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Colors.deepPurple,
+            onPressed: () => Navigator.pushNamed(context, "/ranking"),
+            tooltip: 'Ranking',
+            child: const Icon(
+              Icons.emoji_events_outlined,
+              color: Colors.white,
             ),
           ),
         ),
