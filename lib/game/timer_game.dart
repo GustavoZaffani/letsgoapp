@@ -1,7 +1,7 @@
 import 'package:flame/components.dart';
 import 'package:flame/palette.dart';
 import 'package:flame/text.dart';
-import 'package:letsgo/utils/FormatterUtils.dart';
+import 'package:letsgo/utils/formatter_utils.dart';
 
 class TimerGame extends TextComponent {
   int timesInSeconds;
@@ -13,10 +13,9 @@ class TimerGame extends TextComponent {
             position: position,
             textRenderer: TextPaint(
                 style: TextStyle(
-              fontSize: 36.0,
-              color: BasicPalette.white.color,
-                  fontFamily: "Vinque"
-            )));
+                    fontSize: 36.0,
+                    color: BasicPalette.white.color,
+                    fontFamily: "Vinque")));
 
   @override
   void update(double dt) {

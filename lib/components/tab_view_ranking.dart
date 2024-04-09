@@ -66,7 +66,7 @@ class TabViewRanking extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 18,
                           color: Colors.black45,
-                          fontFamily: "Vinque"
+                          fontFamily: "Vinque",
                         ),
                       ),
                     ],
@@ -104,7 +104,7 @@ class TabViewRanking extends StatelessWidget {
   }
 
   Future<List<ScoreCard>> getRanking() async {
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(const Duration(seconds: 1));
 
     switch (tabView) {
       case TabViewRankingEnum.run:

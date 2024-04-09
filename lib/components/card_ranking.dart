@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:letsgo/dto/score_card.dart';
 import 'package:letsgo/enumerations/modality.dart';
-import 'package:letsgo/utils/FormatterUtils.dart';
+import 'package:letsgo/utils/formatter_utils.dart';
 
 class CardRanking extends StatelessWidget {
   final ScoreCard score;
 
-  CardRanking({
+  const CardRanking({
     required this.score,
+    super.key,
   });
 
   @override

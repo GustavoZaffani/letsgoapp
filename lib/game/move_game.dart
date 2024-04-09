@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
-import 'package:flame/flame.dart';
 import 'package:flame/game.dart';
-import 'package:flame/palette.dart';
 import 'package:flame/parallax.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/cupertino.dart';
@@ -17,7 +15,6 @@ import 'package:letsgo/game/athlete.dart';
 import 'package:letsgo/game/timer_game.dart';
 
 class MoveGame extends FlameGame {
-
   late Athlete _athlete;
   late TimerGame _text;
   late Modality _modality;
